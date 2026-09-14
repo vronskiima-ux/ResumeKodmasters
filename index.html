@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-width=1.0">
+    <title>Михаил Вронский - Резюме</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <!-- Аватар генерируется через API DiceBear (нейтральный стиль) -->
+            <img src="https://api.dicebear.com/7.x/initials/svg?seed=MV&backgroundColor=000000" alt="Аватар" class="avatar">
+            <div>
+                <h1>Михаил Вронский</h1>
+                <p class="subtitle">Frontend Developer / QA Automation</p>
+            </div>
+            <button id="theme-toggle">🌙 Тёмная тема</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>Обо мне</h2>
+            <p>Я студент 2 курса Программной инженерии в НИУ ВШЭ-Пермь. Проходил базовые курсы по JS, HTML, CSS, Java. В настоящий момент прохожу стажировку на позицию Java QA Automation. Активно изучаю веб-технологии и стремлюсь полностью переквалифицироваться во frontend-разработчика.</p>
+        </section>
+
+        <section id="projects">
+            <h2>Опыт и проекты</h2>
+            <div class="grid-container">
+                <article class="card">
+                    <h3>Стажер Java QA Automation</h3>
+                    <p><strong>Компания:</strong> Т1</p>
+                    <p>Автоматизация тестирования и обеспечение качества продукта.</p>
+                </article>
+                <article class="card">
+                    <h3>Frontend-разработчик (React, FastAPI)</h3>
+                    <p><strong>Проект:</strong> Система визуализации рассеиваний вредных веществ (Хакатон НИУ ВШЭ)</p>
+                    <p>Создание пользовательского интерфейса для автоматизированной системы динамического моделирования.</p>
+                </article>
+                <article class="card">
+                    <h3>Продуктовый аналитик (Kotlin, PostgreSQL)</h3>
+                    <p><strong>Проект:</strong> Трекер для планирования задач (Хакатон MAX от VK Education)</p>
+                    <p>Аналитика и проектирование базы данных для системы трекинга.</p>
+                </article>
+                <article class="card">
+                    <h3>Разработчик / Тестировщик (Python, Flet)</h3>
+                    <p><strong>Проект:</strong> Десктопное приложение для сборок ПК</p>
+                    <p>Разработка и тестирование функционала конфигуратора.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Навыки</h2>
+            
+            <div class="controls">
+                <div class="categories">
+                    <button class="filter-btn active" data-category="all">Все</button>
+                    <button class="filter-btn" data-category="frontend">Frontend</button>
+                    <button class="filter-btn" data-category="backend">Backend</button>
+                    <button class="filter-btn" data-category="tools">Базы & Инструменты</button>
+                </div>
+                <input type="text" id="search-input" placeholder="Поиск по навыкам...">
+            </div>
+
+            <ul id="skills-list">
+                <li data-category="frontend">HTML</li>
+                <li data-category="frontend">CSS</li>
+                <li data-category="frontend">JavaScript</li>
+                <li data-category="frontend">React</li>
+                <li data-category="backend">Java</li>
+                <li data-category="backend">Spring Boot</li>
+                <li data-category="backend">Python</li>
+                <li data-category="backend">FastAPI</li>
+                <li data-category="backend">Kotlin</li>
+                <li data-category="tools">PostgreSQL</li>
+                <li data-category="tools">Git</li>
+                <li data-category="tools">Java Automation</li>
+                <li data-category="tools">Google Colab</li>
+                <li data-category="tools">GeoPandas</li>
+            </ul>
+            <p id="no-results" class="hidden">Ничего не найдено.</p>
+        </section>
+    </main>
+
+    <footer>
+        <h2>Контакты</h2>
+        <p>Telegram: <a href="https://t.me/g1ockz" target="_blank">@g1ockz</a></p>
+        <p>GitHub: <a href="#" target="_blank">github.com/your-profile</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
