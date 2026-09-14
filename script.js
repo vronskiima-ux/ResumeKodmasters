@@ -1,4 +1,4 @@
-// === 1. Логика переключения тем ===
+// Переключения тем
 const themeToggleBtn = document.getElementById('theme-toggle');
 const body = document.body;
 
@@ -23,7 +23,7 @@ themeToggleBtn.addEventListener('click', () => {
 });
 
 
-// === 2. Логика фильтрации и поиска навыков ===
+// Фильтрация и поиска навыков
 const filterBtns = document.querySelectorAll('.filter-btn');
 const searchInput = document.getElementById('search-input');
 const skillsList = document.querySelectorAll('#skills-list li');
@@ -50,7 +50,7 @@ function filterSkills() {
         // Проверяем совпадение по тексту поиска
         const matchesSearch = skillName.includes(searchText);
 
-        // Если навык подходит и под категорию, и под поиск — показываем его
+        // Если навык подходит и под категорию, и под поиск - показываем его
         if (matchesCategory && matchesSearch) {
             skill.classList.remove('hidden');
             visibleCount++;
@@ -67,10 +67,10 @@ function filterSkills() {
     }
 }
 
-// Слушаем клики по кнопкам категорий
+// Считываем клики по кнопкам категорий
 filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-        // Убираем класс active у всех кнопок и вешаем на нажатую
+        // Убираем класс active у всех кнопок и присваиваем его нажатой кнопке
         document.querySelector('.filter-btn.active').classList.remove('active');
         btn.classList.add('active');
         // Запускаем пересчет фильтров
@@ -78,7 +78,7 @@ filterBtns.forEach(btn => {
     });
 });
 
-// Слушаем ввод текста в поле поиска
+// Считываем ввод текста в поле поиска
 searchInput.addEventListener('input', () => {
     // Запускаем пересчет фильтров при каждом введенном символе
     filterSkills();
