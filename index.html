@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вронский Михаил - Резюме</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg?v=2">
+</head>
+<body>
+    <header class="header">
+        <div class="header__container container">
+            <a href="#" class="header__logo">
+                <img src="images/favicon.svg" alt="Логотип МВ" class="header__img">
+            </a>
+
+            <nav class="header__nav">
+                <a href="#about">Обо мне</a>
+                <a href="#education">Образование</a>
+                <a href="#experience">Опыт</a>
+                <a href="#skills">Навыки</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+
+            <div class="header__theme">
+                <p class="header__theme-title">Тема</p>
+
+                <label class="header__theme-switch" for="header__theme-checkbox">
+                    <input type="checkbox" id="header__theme-checkbox" class="header__theme-checkbox">
+                    <span class="header__theme-slider"></span>
+                </label>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section id="about" class="about">
+            <div class="about__container container">
+                <div class="about__photo-wrapper">
+                    <img src="images/avatar.jpg" alt="Вронский Михаил" class="about__photo">
+                </div>
+                <div class="about__info">
+                    <h1 class="about__name">Вронский Михаил</h1>
+                    <h2 class="about__title">Frontend-разработчик</h2>
+                    <p class="about__text">Я студент 3 курса Программной инженерии в НИУ ВШЭ-Пермь. Проходил базовые курсы по JS, HTML, CSS, Java.</p>
+                    <p class="about__text">В настоящий момент прохожу стажировку на позицию Java QA Automation в T1.</p>
+                    <p class="about__text">Активно изучаю веб-технологии и стремлюсь полностью переквалифицироваться во frontend-разработчика.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="education">
+            <div class="education__container container">
+                <h2 class="education__title">Образование</h2>
+                <div class="education__card">
+                    <div class="education__header">
+                        <h3 class="education__card-title">НИУ "Высшая школа экономики", Пермь</h3>
+                        <span class="education__years">2024 — 2028</span>
+                    </div>
+                    <p class="education__degree">Высшее образование • Программная инженерия</p>
+                    <p class="education__faculty">Факультет социально-экономических и компьютерных наук</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="experience">
+            <div class="experience__container container">
+                <h2 class="experience__title">Опыт работы и проекты</h2>
+                <div class="experience__grid">
+                    <article class="experience__card">
+                        <h3 class="experience__card-title">Стажировка (T1)</h3>
+                        <p class="experience__role">Java QA Automation</p>
+                        <p class="experience__desc">Текущая стажировка по автоматизации тестирования.</p>
+                    </article>
+                    
+                    <article class="experience__card">
+                        <h3 class="experience__card-title">Сервис бюджета поездок (Т-Практикум)</h3>
+                        <p class="experience__role">Фронтендер (Java, Spring)</p>
+                        <p class="experience__desc">Сервис для совместного управления бюджетом поездок.</p>
+                    </article>
+
+                    <article class="experience__card">
+                        <h3 class="experience__card-title">Система моделирования (НИУ ВШЭ)</h3>
+                        <p class="experience__role">Фронтендер (React, FastAPI)</p>
+                        <p class="experience__desc">Визуализация рассеивания вредных веществ на базе расчетной модели.</p>
+                    </article>
+
+                    <article class="experience__card">
+                        <h3 class="experience__card-title">Трекер задач (Хакатон МАХ VK)</h3>
+                        <p class="experience__role">Продуктовый аналитик (Kotlin)</p>
+                        <p class="experience__desc">Планировщик задач в рамках хакатона от VK Education.</p>
+                    </article>
+
+                    <article class="experience__card">
+                        <h3 class="experience__card-title">Приложение для сборок ПК</h3>
+                        <p class="experience__role">Тестировщик и разработчик</p>
+                        <p class="experience__desc">Десктопное приложение на Python (фреймворк Flet).</p>
+                    </article>
+
+                    <article class="experience__card">
+                        <h3 class="experience__card-title">Приложение (Дорожные знаки)</h3>
+                        <p class="experience__role">Тестировщик и разработчик</p>
+                        <p class="experience__desc">Приложение для запоминания дорожных знаков на C# (.NET MAUI).</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <div class="skills__container container">
+                <h2 class="skills__title">Навыки</h2>
+                <div class="skills__controls">
+                    <input type="text" id="skills__search-input" class="skills__search-input" placeholder="Поиск по навыкам...">
+                    <div class="skills__filters">
+                        <button class="skills__btn skills__btn--active" data-filter="all">Все</button>
+                        <button class="skills__btn" data-filter="frontend">Frontend</button>
+                        <button class="skills__btn" data-filter="backend">Backend</button>
+                        <button class="skills__btn" data-filter="tools">Tools</button>
+                        <button class="skills__btn" data-filter="other">Other</button>
+                    </div>
+                </div>
+
+                <div class="skills__list">
+                    <div class="skills__item" data-category="frontend">HTML</div>
+                    <div class="skills__item" data-category="frontend">HTML5</div>
+                    <div class="skills__item" data-category="frontend">CSS</div>
+                    <div class="skills__item" data-category="frontend">JavaScript</div>
+                    <div class="skills__item" data-category="frontend">React</div>
+                    <div class="skills__item" data-category="frontend">TypeScript</div>
+                    
+                    <div class="skills__item" data-category="backend">Java</div>
+                    <div class="skills__item" data-category="backend">Spring Boot</div>
+                    <div class="skills__item" data-category="backend">Python</div>
+                    <div class="skills__item" data-category="backend">FastAPI</div>
+                    <div class="skills__item" data-category="backend">Kotlin</div>
+                    
+                    <div class="skills__item" data-category="tools">PostgreSQL</div>
+                    <div class="skills__item" data-category="tools">Git</div>
+                    <div class="skills__item" data-category="tools">Java Automation</div>
+                    <div class="skills__item" data-category="tools">Google Colab</div>
+                    <div class="skills__item" data-category="tools">GeoPandas</div>
+                    
+                    <div class="skills__item" data-category="other">Веб-программирование</div>
+                    <div class="skills__item" data-category="other">Веб-дизайн</div>
+                </div>
+                <p id="skills__empty-msg" class="skills__empty-msg is-hidden">Ничего не найдено.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contacts" class="footer">
+        <div class="footer__container container">
+            <h2 class="footer__title">Связаться со мной</h2>
+            <div class="footer__links">
+                <a href="https://t.me/g1ockz" class="footer__link footer__link--secondary">@g1ockz (TG)</a>
+                <a href="mailto:mavronskii@edu.hse.ru" class="footer__link footer__link--primary">mavronskii@edu.hse.ru</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
