@@ -49,9 +49,9 @@ body {
 }
 
 .header {
-    margin: 40px auto 0;
+    margin: 0 auto;
     position: sticky;
-    top: 20px;
+    top: 0;
     z-index: 100;
 }
 
@@ -61,7 +61,8 @@ body {
     align-items: center;
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 16px;
+    border-top: none;
+    border-radius: 0 0 16px 16px;
     padding: 16px 24px;
     transition: background-color 0.3s, border-color 0.3s;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
