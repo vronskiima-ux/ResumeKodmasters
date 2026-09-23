@@ -471,7 +471,6 @@ body {
         order: 5;
     }
     
-    /* 5. Нижний ряд (порядок от 6 до 8) */
     .header__nav a[href="#skills"] { order: 6; }
     .header__nav a[href="#contacts"] { order: 7; }
     .header__theme { order: 8; }
