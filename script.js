@@ -1,85 +1,90 @@
-// Переключения тем
-const themeToggleBtn = document.getElementById('theme-toggle');
+const themeSwitch = document.getElementById('header__theme-checkbox');
 const body = document.body;
 
-// Проверяем, есть ли сохраненная тема в localStorage
 if (localStorage.getItem('theme') === 'dark') {
-    body.classList.add('dark-theme');
-    themeToggleBtn.textContent = '☀️ Светлая тема';
+    body.classList.add('dark');
+    themeSwitch.checked = true;
 }
 
-themeToggleBtn.addEventListener('click', () => {
-    // Переключаем класс на body
-    body.classList.toggle('dark-theme');
-    
-    // Сохраняем выбор и меняем текст кнопки
-    if (body.classList.contains('dark-theme')) {
+themeSwitch.addEventListener('change', () => {
+    if (themeSwitch.checked) {
+        body.classList.add('dark');
         localStorage.setItem('theme', 'dark');
-        themeToggleBtn.textContent = '☀️ Светлая тема';
     } else {
+        body.classList.remove('dark');
         localStorage.setItem('theme', 'light');
-        themeToggleBtn.textContent = '🌙 Тёмная тема';
     }
 });
 
+const searchInput = document.getElementById('skills__search-input');
+const filterBtns = document.querySelectorAll('.skills__btn');
+const skillItems = document.querySelectorAll('.skills__item');
+const emptyMessage = document.getElementById('skills__empty-msg');
 
-// Фильтрация и поиска навыков
-const filterBtns = document.querySelectorAll('.filter-btn');
-const searchInput = document.getElementById('search-input');
-const skillsList = document.querySelectorAll('#skills-list li');
-const noResultsMsg = document.getElementById('no-results');
+let currentCategory = 'all';
+let searchTerm = '';
 
-// Функция, которая применяет фильтры
 function filterSkills() {
-    // Получаем текущую активную категорию
-    const activeBtn = document.querySelector('.filter-btn.active');
-    const selectedCategory = activeBtn.getAttribute('data-category');
-    
-    // Получаем текст из поиска в нижнем регистре
-    const searchText = searchInput.value.toLowerCase();
-    
-    let visibleCount = 0; // Счетчик видимых навыков
+    let visibleCount = 0;
+    let delay = 0;
 
-    // Проходимся по каждому элементу списка навыков
-    skillsList.forEach(skill => {
-        const skillCategory = skill.getAttribute('data-category');
-        const skillName = skill.textContent.toLowerCase();
-
-        // Проверяем совпадение по категории (или если выбрано "Все")
-        const matchesCategory = (selectedCategory === 'all' || skillCategory === selectedCategory);
-        // Проверяем совпадение по тексту поиска
-        const matchesSearch = skillName.includes(searchText);
-
-        // Если навык подходит и под категорию, и под поиск - показываем его
-        if (matchesCategory && matchesSearch) {
-            skill.classList.remove('hidden');
-            visibleCount++;
-        } else {
-            skill.classList.add('hidden');
-        }
+    skillItems.forEach(item => {
+        item.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+        item.style.transitionDelay = '0s';
+        item.classList.remove('is-visible');
     });
+    emptyMessage.classList.remove('is-visible');
 
-    // Если ни один навык не показан, выводим сообщение "Ничего не найдено"
-    if (visibleCount === 0) {
-        noResultsMsg.classList.remove('hidden');
-    } else {
-        noResultsMsg.classList.add('hidden');
-    }
+    setTimeout(() => {
+        skillItems.forEach(item => {
+            const itemCategory = item.getAttribute('data-category');
+            const itemText = item.textContent.toLowerCase();
+            
+            const categoryMatch = currentCategory === 'all' || itemCategory === currentCategory;
+            const searchMatch = itemText.includes(searchTerm);
+
+            if (categoryMatch && searchMatch) {
+                item.classList.remove('is-hidden');
+                visibleCount++;
+            } else {
+                item.classList.add('is-hidden');
+            }
+        });
+
+        if (visibleCount === 0) {
+            emptyMessage.classList.remove('is-hidden');
+            setTimeout(() => emptyMessage.classList.add('is-visible'), 20);
+        } else {
+            emptyMessage.classList.add('is-hidden');
+        }
+
+        skillItems.forEach(item => {
+            if (!item.classList.contains('is-hidden')) {
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease, background-color 0.3s, border-color 0.3s, color 0.3s';
+                item.style.transitionDelay = `${delay}s, ${delay}s, 0s, 0s, 0s`;
+                
+                setTimeout(() => item.classList.add('is-visible'), 20);
+                delay += 0.05;
+            }
+        });
+
+    }, 250);
 }
 
-// Считываем клики по кнопкам категорий
 filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Убираем класс active у всех кнопок и присваиваем его нажатой кнопке
-        document.querySelector('.filter-btn.active').classList.remove('active');
-        btn.classList.add('active');
-        // Запускаем пересчет фильтров
+    btn.addEventListener('click', (e) => {
+        if(e.target.classList.contains('skills__btn--active')) return;
+
+        filterBtns.forEach(b => b.classList.remove('skills__btn--active'));
+        e.target.classList.add('skills__btn--active');
+        currentCategory = e.target.getAttribute('data-filter');
         filterSkills();
     });
 });
 
-// Считываем ввод текста в поле поиска
-searchInput.addEventListener('input', () => {
-    // Запускаем пересчет фильтров при каждом введенном символе
+searchInput.addEventListener('input', (e) => {
+    searchTerm = e.target.value.toLowerCase().trim();
     filterSkills();
 });
+
+filterSkills();
